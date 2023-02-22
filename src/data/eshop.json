@@ -1,0 +1,167 @@
+[
+    {
+      "id": 1,
+      "title": "The Legend of Zelda: Breath of the Wild",
+      "tags": ["adventure", "action", "open-world"],
+      "price": 59.99,
+      "description": "Explore a vast open world in this critically acclaimed adventure game.",
+      "editor": "Nintendo",
+      "platforms": ["Nintendo Switch"]
+    },
+    {
+      "id": 2,
+      "title": "Red Dead Redemption 2",
+      "tags": ["action", "western", "open-world"],
+      "price": 49.99,
+      "description": "Immerse yourself in the Wild West in this critically acclaimed action game.",
+      "editor": "Rockstar Games",
+      "platforms": ["PlayStation 4", "Xbox One", "PC"]
+    },
+    {
+      "id": 3,
+      "title": "Minecraft",
+      "tags": ["sandbox", "survival", "multiplayer"],
+      "price": 19.99,
+      "description": "Build and explore your own blocky world in this hugely popular sandbox game.",
+      "editor": "Mojang",
+      "platforms": ["PC", "PlayStation 4", "Xbox One", "Nintendo Switch"]
+    },
+    {
+      "id": 4,
+      "title": "Super Smash Bros. Ultimate",
+      "tags": ["fighting", "multiplayer"],
+      "price": 59.99,
+      "description": "Gather your favorite video game characters and battle it out in this fan-favorite fighting game.",
+      "editor": "Nintendo",
+      "platforms": ["Nintendo Switch"]
+    },
+    {
+      "id": 5,
+      "title": "The Witcher 3: Wild Hunt",
+      "tags": ["action", "open-world", "fantasy"],
+      "price": 39.99,
+      "description": "Embark on a dark and epic quest in this award-winning action RPG.",
+      "editor": "CD Projekt Red",
+      "platforms": ["PlayStation 4", "Xbox One", "PC"]
+    },
+    {
+      "id": 6,
+      "title": "Overwatch",
+      "tags": ["shooter", "multiplayer"],
+      "price": 29.99,
+      "description": "Team up and battle for glory in this highly popular multiplayer shooter.",
+      "editor": "Blizzard Entertainment",
+      "platforms": ["PC", "PlayStation 4", "Xbox One", "Nintendo Switch"]
+    },
+    {
+      "id": 7,
+      "title": "Grand Theft Auto V",
+      "tags": ["action", "open-world"],
+      "price": 29.99,
+      "description": "Join the criminal underworld and pull off heists in this massively popular action game.",
+      "editor": "Rockstar Games",
+      "platforms": ["PlayStation 4", "Xbox One", "PC"]
+    },
+    {
+      "id": 8,
+      "title": "Animal Crossing: New Horizons",
+      "tags": ["simulation", "casual"],
+      "price": 49.99,
+      "description": "Create your own island paradise and live the life of your dreams in this relaxing simulation game.",
+      "editor": "Nintendo",
+      "platforms": ["Nintendo Switch"]
+    },
+    {
+      "id": 9,
+      "title": "Fortnite",
+      "tags": ["shooter", "battle-royale", "multiplayer"],
+      "price": 0,
+      "description": "Join the battle royale and be the last person standing in this free-to-play shooter game.",
+      "editor": "Epic Games",
+      "platforms": [
+        "PC",
+        "PlayStation 4",
+        "Xbox One",
+        "Nintendo Switch",
+        "iOS",
+        "Android"
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Call of Duty: Warzone",
+      "tags": ["shooter", "battle-royale", "multiplayer"],
+      "price": 0,
+      "description": "Enter the arena and fight to be the last squad standing in this free-to-play battle royale game.",
+      "editor": "Activision",
+      "platforms": [
+        "PC",
+        "PlayStation 4",
+        "PlayStation 5",
+        "Xbox One",
+        "Xbox Series X/S"
+      ]
+    },
+    {
+      "id": 11,
+      "title": "The Elder Scrolls V: Skyrim",
+      "tags": ["action", "open-world", "fantasy"],
+      "price": 39.99,
+      "description": "Explore the vast world of Tamriel and battle dragons in this award-winning action RPG.",
+      "editor": "Bethesda Softworks",
+      "platforms": [
+        "PlayStation 4",
+        "PlayStation 5",
+        "Xbox One",
+        "Xbox Series X/S",
+        "PC",
+        "Nintendo Switch"
+      ]
+    },
+    {
+      "id": 12,
+      "title": "FIFA 22",
+      "tags": ["sports", "soccer", "multiplayer"],
+      "price": 59.99,
+      "description": "Play as your favorite soccer teams and compete against other players in this highly popular sports game.",
+      "editor": "Electronic Arts",
+      "platforms": [
+        "PlayStation 4",
+        "PlayStation 5",
+        "Xbox One",
+        "Xbox Series X/S",
+        "PC",
+        "Nintendo Switch"
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Assassin's Creed Valhalla",
+      "tags": ["action", "open-world", "historical"],
+      "price": 59.99,
+      "description": "Take on the role of a Viking warrior and conquer England in this epic historical action game.",
+      "editor": "Ubisoft",
+      "platforms": [
+        "PlayStation 4",
+        "PlayStation 5",
+        "Xbox One",
+        "Xbox Series X/S",
+        "PC"
+      ]
+    },
+    {
+      "id": 14,
+      "title": "The Sims 4",
+      "tags": ["simulation", "life-simulation"],
+      "price": 39.99,
+      "description": "Create and control your own virtual people and build the house of your dreams in this popular life simulation game.",
+      "editor": "Electronic Arts",
+      "platforms": [
+        "PC",
+        "PlayStation 4",
+        "PlayStation 5",
+        "Xbox One",
+        "Xbox Series X/S"
+      ]
+    }
+  ]
