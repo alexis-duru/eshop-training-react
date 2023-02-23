@@ -1,0 +1,20 @@
+.button-container {
+    margin: 1rem 0;
+    max-width: 350px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.button-number-select {
+    margin: 1rem 0rem;
+    width: 155px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.insert-add-to-cart-button {
+    width: 40px;
+}

@@ -1,0 +1,42 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+*,
+:after,
+:before {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body,
+html {
+    font-size: 62.5% !important;
+    width: 100%;
+    overscroll-behavior: none;
+    margin: 0;
+    padding: 0;
+}
+    
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: initial;
+}
+#mc-embedded-subscribe {
+    margin: 0 !important;
+}
+
+
+
+
+
