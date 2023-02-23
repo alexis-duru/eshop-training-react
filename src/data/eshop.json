@@ -6,7 +6,8 @@
       "price": 59.99,
       "description": "Explore a vast open world in this critically acclaimed adventure game.",
       "editor": "Nintendo",
-      "platforms": ["Nintendo Switch"]
+      "platforms": ["Nintendo Switch"],
+      "image": "../assets/images/zelda.png"
     },
     {
       "id": 2,
@@ -16,6 +17,8 @@
       "description": "Immerse yourself in the Wild West in this critically acclaimed action game.",
       "editor": "Rockstar Games",
       "platforms": ["PlayStation 4", "Xbox One", "PC"]
+      
+      
     },
     {
       "id": 3,

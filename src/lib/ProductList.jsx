@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ProductListItem from "./ProductListItem";
-import Panier from "./Panier";
+import ShoppingCart from "./ShoppingCart";
 import products from "../data/eshop.json";
 
 function ProductList() {
@@ -24,8 +24,7 @@ function ProductList() {
   return (
     <div className="product-list-container">
       <div className="product-list">
-        <h2>Liste des produits</h2>
-        <ul>
+        <ul className="product-list-wrapper">
           {productList.map((product, index) => (
             <ProductListItem
               key={index}
@@ -35,7 +34,7 @@ function ProductList() {
           ))}
         </ul>
       </div>
-      <Panier cart={cart} />
+      <ShoppingCart cart={cart} />
     </div>
   );
 }

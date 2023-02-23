@@ -13,27 +13,61 @@ function ProductListItem({ product, addToCart }) {
     }
   };
 
+  const handleQuantityChange = (event) => {
+    const value = parseInt(event.target.value);
+    setQuantity(value >= 0 ? value : 0);
+  };
+
   const handleAddToCart = () => {
     addToCart({ product, quantity });
-    setQuantity(quantity);
+    console.log(quantity);
+    setQuantity(0);
   };
 
   return (
-    <li className="product-list-item" key={product.id}>
-      <div>{product.title}</div>
-      <div>{product.price} €</div>
-      <div>{product.description}</div>
-      <div>{product.tags}</div>
-      <button className="remove-from-cart-button" onClick={handleDecrement}>
-        -
-      </button>
-      <span className="quantity">{quantity}</span>
-      <button className="add-to-cart-button" onClick={handleIncrement}>
-        +
-      </button>
-      <button className="add-to-cart-button" onClick={handleAddToCart}>
-        Ajouter au panier
-      </button>
+    <li data-aos="fade-up" className="product-list-item" key={product.id}>
+      <h2>{product.title}</h2>
+      <h3 className="price">{product.price} €</h3>
+      <p className="description">{product.description}</p>
+      <div className="container">
+        <div className="button-container">
+          <div className="button-number-select">
+            <button
+              className="button-quantity remove-from-cart-button"
+              onClick={handleDecrement}
+            >
+              -
+            </button>
+
+            <input
+              className="insert-add-to-cart-button"
+              type="number"
+              value={quantity}
+              onChange={handleQuantityChange}
+            />
+
+            <button
+              className="button-quantity add-to-cart-button"
+              onClick={handleIncrement}
+            >
+              +
+            </button>
+          </div>
+          <button className="add-to-cart-button" onClick={handleAddToCart}>
+            Add to cart
+          </button>
+        </div>
+        <div className="artwork">
+          <img src={product.image} alt={product.title} />
+        </div>
+      </div>
+      <h4>
+        {product.tags.map((tag, index) => (
+          <span className="tags" key={index}>
+            {tag}
+          </span>
+        ))}
+      </h4>
     </li>
   );
 }
