@@ -3,6 +3,8 @@ import React, { useState } from "react";
 function ProductListItem({ product, addToCart }) {
   const [quantity, setQuantity] = useState(0);
 
+  // console.log(quantity);
+
   const handleIncrement = () => {
     setQuantity(quantity + 1);
   };
@@ -19,6 +21,7 @@ function ProductListItem({ product, addToCart }) {
   };
 
   const handleAddToCart = () => {
+    // console.log(product.id, product.title, product.price, quantity);
     addToCart({ product, quantity });
     console.log(quantity);
     setQuantity(0);
@@ -26,6 +29,7 @@ function ProductListItem({ product, addToCart }) {
 
   return (
     <li data-aos="fade-up" className="product-list-item" key={product.id}>
+      <p>{product.id}</p>
       <h2>{product.title}</h2>
       <h3 className="price">{product.price} €</h3>
       <p className="description">{product.description}</p>
@@ -57,9 +61,9 @@ function ProductListItem({ product, addToCart }) {
             Add to cart
           </button>
         </div>
-        <div className="artwork">
+        {/* <div className="artwork">
           <img src={product.image} alt={product.title} />
-        </div>
+        </div> */}
       </div>
       <h4>
         {product.tags.map((tag, index) => (
