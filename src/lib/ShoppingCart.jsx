@@ -41,17 +41,22 @@ function ShoppingCart({ cart }) {
             alt="fermer"
           />
           <h2>Panier</h2>
-          <ul>
-            {cart.map((item, index) => (
-              <li key={index}>
-                <p>{item.product.title}</p>
-                <p>{item.quantity}</p>
-                <p>{item.product.price} €</p>
-              </li>
-            ))}
-          </ul>
-          <div className="total-price-container">
-            <p>Total : {totalPrice} €</p>
+          <div className="cart-wrapper">
+            <ul>
+              {cart.map((item, index) => (
+                <li className="cart-product" key={index}>
+                  <span></span>
+                  <p>{item.product.title}</p>
+                  <p>Quantity : {item.quantity}</p>
+                  <p>Price : {item.product.price} €</p>
+                </li>
+              ))}
+            </ul>
+            <span></span>
+            <span></span>
+            <div className="total-price-container">
+              <p>Total : {totalPrice} €</p>
+            </div>
           </div>
         </div>
       </div>
