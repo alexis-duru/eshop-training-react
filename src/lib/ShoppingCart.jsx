@@ -1,21 +1,24 @@
 import React, { useState } from "react";
 
-function Cart({ cart }) {
-  const [cartWidth, setCartWidth] = useState(0);
-
+function ShoppingCart({ cart }) {
   const toggleCart = () => {
-    const newCartWidth = cartWidth === 400 ? 0 : 400;
-    setCartWidth(newCartWidth);
-    // console.log(newCartWidth === 0 ? "close" : "open");
+    const cartContainer = document.querySelector(".cart-container");
+    cartContainer.style.transform = "translateX(0px)";
   };
 
   const closeCart = () => {
-    setCartWidth(0);
+    const cartContainer = document.querySelector(".cart-container");
+    cartContainer.style.transform = "translateX(400px)";
   };
 
   let totalQuantity = 0;
   for (let item of cart) {
     totalQuantity += item.quantity;
+  }
+
+  let totalPrice = 0;
+  for (let item of cart) {
+    totalPrice += item.product.price * item.quantity;
   }
 
   return (
@@ -30,18 +33,30 @@ function Cart({ cart }) {
         </div>
         <p className="cart-quantity">{totalQuantity}</p>
       </div>
-      <div className="cart-container" style={{ width: cartWidth }}>
+      <div className="cart-container" onClick={closeCart}>
         <div className="cart-wrapper">
           <img
             className="close-icon"
             src="../assets/images/close.png"
             alt="fermer"
-            onClick={closeCart}
           />
+          <h2>Panier</h2>
+          <ul>
+            {cart.map((item, index) => (
+              <li key={index}>
+                <p>{item.product.title}</p>
+                <p>{item.quantity}</p>
+                <p>{item.product.price} €</p>
+              </li>
+            ))}
+          </ul>
+          <div className="total-price-container">
+            <p>Total : {totalPrice} €</p>
+          </div>
         </div>
       </div>
     </>
   );
 }
 
-export default Cart;
+export default ShoppingCart;

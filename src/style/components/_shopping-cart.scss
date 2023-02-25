@@ -41,7 +41,8 @@
     position: fixed;
     top: 0;
     right: 0;
-    width: 0px;
+    width: 400px;
+    transform: translateX(400px);
     height: 100%;
     background-color: black;
     display: flex;
