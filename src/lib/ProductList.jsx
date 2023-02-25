@@ -7,19 +7,26 @@ function ProductList() {
   const [productList, setProductList] = useState(products);
 
   const [cart, setCart] = useState([]);
+  const [nextId, setNextId] = useState(1);
 
   const addToCart = (product) => {
     const itemIndex = cart.findIndex((item) => item.id === product.id);
 
     if (itemIndex === -1) {
-      const newItem = { ...product };
+      const newItem = { ...product, id: nextId };
       setCart([...cart, newItem]);
+      setNextId(nextId + 1);
+
+      console.log(newItem);
     } else {
       const updatedCart = [...cart];
       updatedCart[itemIndex].quantity += product.quantity;
       setCart(updatedCart);
+      console.log(updatedCart);
     }
   };
+
+  console.log(cart);
 
   return (
     <div className="product-list-container">
