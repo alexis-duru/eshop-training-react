@@ -6,7 +6,11 @@ function Cart({ cart }) {
   const toggleCart = () => {
     const newCartWidth = cartWidth === 400 ? 0 : 400;
     setCartWidth(newCartWidth);
-    console.log(newCartWidth === 0 ? "close" : "open");
+    // console.log(newCartWidth === 0 ? "close" : "open");
+  };
+
+  const closeCart = () => {
+    setCartWidth(0);
   };
 
   let totalQuantity = 0;
@@ -18,7 +22,6 @@ function Cart({ cart }) {
     <>
       <div className="cart-header" onClick={toggleCart}>
         <div className="cart-icon-container">
-          {/* <h1>cart</h1> */}
           <img
             className="cart-icon"
             src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png"
@@ -26,9 +29,17 @@ function Cart({ cart }) {
           />
         </div>
         <p className="cart-quantity">{totalQuantity}</p>
-        {/* <p className="cart-total">{totalProduct} €</p> */}
       </div>
-      <div className="cart-container" style={{ width: cartWidth }}></div>
+      <div className="cart-container" style={{ width: cartWidth }}>
+        <div className="cart-wrapper">
+          <img
+            className="close-icon"
+            src="../assets/images/close.png"
+            alt="fermer"
+            onClick={closeCart}
+          />
+        </div>
+      </div>
     </>
   );
 }
