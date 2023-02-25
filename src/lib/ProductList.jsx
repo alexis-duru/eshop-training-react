@@ -7,41 +7,42 @@ function ProductList() {
   const [productList, setProductList] = useState(products);
 
   const [cart, setCart] = useState([]);
-  const [nextId, setNextId] = useState(1);
 
-  const addToCart = (product) => {
-    const itemIndex = cart.findIndex((item) => item.id === product.id);
-
-    if (itemIndex === -1) {
-      const newItem = { ...product, id: nextId };
-      setCart([...cart, newItem]);
-      setNextId(nextId + 1);
-
-      console.log(newItem);
-    } else {
-      const updatedCart = [...cart];
-      updatedCart[itemIndex].quantity += product.quantity;
+  const addToCart = (product, quantity) => {
+    // Cherche si le produit est déjà dans le panier
+    const existingProduct = cart.find((item) => item.product.id === product.id);
+    if (existingProduct) {
+      // Si le produit est déjà dans le panier, je met à jour la quantité
+      const updatedCart = cart.map((item) => {
+        if (item.product.id === product.id) {
+          return { product, quantity: item.quantity + quantity };
+        } else {
+          return item;
+        }
+      });
       setCart(updatedCart);
-      console.log(updatedCart);
+    } else {
+      // Si le produit n'est pas dans le panier, je l'ajoute
+      setCart([...cart, { product, quantity }]);
     }
   };
 
-  console.log(cart);
+  console.log("cart", cart);
 
   return (
     <div className="product-list-container">
       <div className="product-list">
         <ul className="product-list-wrapper">
-          {productList.map((product, index) => (
+          {productList.map((product) => (
             <ProductListItem
-              key={index}
+              key={product.id}
               product={product}
               addToCart={addToCart}
             />
           ))}
         </ul>
       </div>
-      <ShoppingCart cart={cart} />
+      <ShoppingCart cart={cart} setCart={setCart} />
     </div>
   );
 }

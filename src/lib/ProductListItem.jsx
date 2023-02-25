@@ -3,8 +3,6 @@ import React, { useState } from "react";
 function ProductListItem({ product, addToCart }) {
   const [quantity, setQuantity] = useState(0);
 
-  // console.log(quantity);
-
   const handleIncrement = () => {
     setQuantity(quantity + 1);
   };
@@ -21,14 +19,12 @@ function ProductListItem({ product, addToCart }) {
   };
 
   const handleAddToCart = () => {
-    // console.log(product.id, product.title, product.price, quantity);
-    addToCart({ product, quantity });
-    console.log(quantity);
+    addToCart(product, quantity);
     setQuantity(0);
   };
 
   return (
-    <li data-aos="fade-up" className="product-list-item" key={product.id}>
+    <li data-aos="fade-up" className="product-list-item">
       <p>{product.id}</p>
       <h2>{product.title}</h2>
       <h3 className="price">{product.price} €</h3>
@@ -42,14 +38,12 @@ function ProductListItem({ product, addToCart }) {
             >
               -
             </button>
-
             <input
               className="insert-add-to-cart-button"
               type="number"
               value={quantity}
               onChange={handleQuantityChange}
             />
-
             <button
               className="button-quantity add-to-cart-button"
               onClick={handleIncrement}
@@ -61,13 +55,10 @@ function ProductListItem({ product, addToCart }) {
             Add to cart
           </button>
         </div>
-        {/* <div className="artwork">
-          <img src={product.image} alt={product.title} />
-        </div> */}
       </div>
       <h4>
-        {product.tags.map((tag, index) => (
-          <span className="tags" key={index}>
+        {product.tags.map((tag) => (
+          <span className="tags" key={tag}>
             {tag}
           </span>
         ))}
