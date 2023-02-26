@@ -27,6 +27,12 @@ function ProductList() {
     }
   };
 
+  const removeProduct = (index) => {
+    const newCart = [...cart];
+    newCart.splice(index, 1);
+    setCart(newCart);
+  };
+
   console.log("cart", cart);
 
   return (
@@ -42,7 +48,11 @@ function ProductList() {
           ))}
         </ul>
       </div>
-      <ShoppingCart cart={cart} setCart={setCart} />
+      <ShoppingCart
+        cart={cart}
+        setCart={setCart}
+        onRemoveProduct={removeProduct}
+      />
     </div>
   );
 }
