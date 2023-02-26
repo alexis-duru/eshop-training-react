@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function ShoppingCart({ cart, onRemoveProduct }) {
+function ShoppingCart({ cart, onRemoveProduct, onUpdateProductQuantity }) {
   const toggleCart = () => {
     const cartContainer = document.querySelector(".cart-container");
     cartContainer.style.transform = "translateX(0px)";
@@ -19,7 +19,12 @@ function ShoppingCart({ cart, onRemoveProduct }) {
   let totalPrice = 0;
   for (let item of cart) {
     totalPrice += item.product.price * item.quantity;
+    totalPrice = Math.round(totalPrice * 100) / 100;
   }
+
+  const handleQuantityChange = (index, newQuantity) => {
+    onUpdateProductQuantity(index, newQuantity);
+  };
 
   return (
     <>
@@ -48,7 +53,24 @@ function ShoppingCart({ cart, onRemoveProduct }) {
                 <li className="cart-product" key={index}>
                   <span></span>
                   <p>{item.product.title}</p>
-                  <p>Quantity : {item.quantity}</p>
+                  <div className="quantity-control">
+                    <button
+                      onClick={() =>
+                        handleQuantityChange(index, item.quantity - 1)
+                      }
+                      disabled={item.quantity === 1}
+                    >
+                      -
+                    </button>
+                    <p>Quantity : {item.quantity}</p>
+                    <button
+                      onClick={() =>
+                        handleQuantityChange(index, item.quantity + 1)
+                      }
+                    >
+                      +
+                    </button>
+                  </div>
                   <p>Price : {item.product.price} €</p>
                   <button onClick={() => onRemoveProduct(index)}>Remove</button>
                 </li>

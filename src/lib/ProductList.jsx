@@ -33,6 +33,12 @@ function ProductList() {
     setCart(newCart);
   };
 
+  const updateProduct = (index, quantity) => {
+    const newCart = [...cart];
+    newCart[index].quantity = quantity;
+    setCart(newCart);
+  };
+
   console.log("cart", cart);
 
   return (
@@ -52,6 +58,7 @@ function ProductList() {
         cart={cart}
         setCart={setCart}
         onRemoveProduct={removeProduct}
+        onUpdateProductQuantity={updateProduct}
       />
     </div>
   );
