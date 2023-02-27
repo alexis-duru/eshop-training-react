@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import QuantityControl from "./QuantityControl";
 
 function ShoppingCart({ cart, onRemoveProduct, onUpdateProductQuantity }) {
   const toggleCart = () => {
@@ -18,12 +19,32 @@ function ShoppingCart({ cart, onRemoveProduct, onUpdateProductQuantity }) {
 
   let totalPrice = 0;
   for (let item of cart) {
-    totalPrice += item.product.price * item.quantity;
+    const productTotalPrice = item.product.price * item.quantity;
+    item.productTotalPrice = Math.round(productTotalPrice * 100) / 100;
+    totalPrice += item.productTotalPrice;
     totalPrice = Math.round(totalPrice * 100) / 100;
   }
 
   const handleQuantityChange = (index, newQuantity) => {
     onUpdateProductQuantity(index, newQuantity);
+  };
+
+  const handleRemoveProduct = (index) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to remove this product?"
+    );
+    if (confirmDelete) {
+      alert(`Product ${cart[index].product.title} removed from cart!`);
+      onRemoveProduct(index);
+    }
+  };
+
+  const handleValidateOrder = () => {
+    alert("Votre commande a bien été prise en compte !");
+    closeCart();
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
   };
 
   return (
@@ -53,26 +74,37 @@ function ShoppingCart({ cart, onRemoveProduct, onUpdateProductQuantity }) {
                 <li className="cart-product" key={index}>
                   <span></span>
                   <p>{item.product.title}</p>
-                  <div className="quantity-control">
-                    <button
-                      onClick={() =>
-                        handleQuantityChange(index, item.quantity - 1)
-                      }
-                      disabled={item.quantity === 1}
-                    >
-                      -
-                    </button>
-                    <p>Quantity : {item.quantity}</p>
-                    <button
-                      onClick={() =>
-                        handleQuantityChange(index, item.quantity + 1)
-                      }
-                    >
-                      +
-                    </button>
+                  <QuantityControl
+                    onQuantityChange={(newQuantity) =>
+                      handleQuantityChange(index, newQuantity)
+                    }
+                    quantity={item.quantity}
+                    onDecrement={() =>
+                      handleQuantityChange(index, item.quantity - 1)
+                    }
+                    onIncrement={() =>
+                      handleQuantityChange(index, item.quantity + 1)
+                    }
+                    min={1}
+                    max={item.product.stock}
+                  />
+                  <div className="item-shopping-cart-container">
+                    <p>
+                      Price : <div>{item.product.price} €</div>
+                    </p>
+                    <p>
+                      Quantity : <div> x {item.quantity}</div>
+                    </p>
+                    <p>
+                      Total Price : <div>{item.productTotalPrice} €</div>
+                    </p>
                   </div>
-                  <p>Price : {item.product.price} €</p>
-                  <button onClick={() => onRemoveProduct(index)}>Remove</button>
+                  <button
+                    id="button-remove"
+                    onClick={() => handleRemoveProduct(index)}
+                  >
+                    Remove
+                  </button>
                 </li>
               ))}
             </ul>
@@ -80,8 +112,9 @@ function ShoppingCart({ cart, onRemoveProduct, onUpdateProductQuantity }) {
               <span></span>
               <span></span>
               <div className="total-price-container">
-                <p>Total : {totalPrice} €</p>
+                <p className="total-price">Total : {totalPrice} €</p>
               </div>
+              <button onClick={handleValidateOrder}>Valider ma commande</button>
             </div>
           </div>
         </div>

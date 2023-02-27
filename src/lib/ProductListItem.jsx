@@ -1,21 +1,11 @@
 import React, { useState } from "react";
+import QuantityControl from "./QuantityControl";
 
 function ProductListItem({ product, addToCart }) {
   const [quantity, setQuantity] = useState(0);
 
-  const handleIncrement = () => {
-    setQuantity(quantity + 1);
-  };
-
-  const handleDecrement = () => {
-    if (quantity > 0) {
-      setQuantity(quantity - 1);
-    }
-  };
-
-  const handleQuantityChange = (event) => {
-    const value = parseInt(event.target.value);
-    setQuantity(value >= 0 ? value : 0);
+  const handleQuantityChange = (value) => {
+    setQuantity(value);
   };
 
   const handleAddToCart = () => {
@@ -29,33 +19,13 @@ function ProductListItem({ product, addToCart }) {
       <h2>{product.title}</h2>
       <h3 className="price">{product.price} €</h3>
       <p className="description">{product.description}</p>
-      <div className="container">
-        <div className="button-container">
-          <div className="button-number-select">
-            <button
-              className="button-quantity remove-from-cart-button"
-              onClick={handleDecrement}
-            >
-              -
-            </button>
-            <input
-              className="insert-add-to-cart-button"
-              type="number"
-              value={quantity}
-              onChange={handleQuantityChange}
-            />
-            <button
-              className="button-quantity add-to-cart-button"
-              onClick={handleIncrement}
-            >
-              +
-            </button>
-          </div>
-          <button className="add-to-cart-button" onClick={handleAddToCart}>
-            Add to cart
-          </button>
-        </div>
-      </div>
+      <QuantityControl
+        quantity={quantity}
+        onQuantityChange={handleQuantityChange}
+      />
+      <button className="add-to-cart-button" onClick={handleAddToCart}>
+        Add to cart
+      </button>
       <h4>
         {product.tags.map((tag) => (
           <span className="tags" key={tag}>
