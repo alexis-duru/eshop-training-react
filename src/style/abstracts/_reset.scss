@@ -36,6 +36,17 @@ a {
     margin: 0 !important;
 }
 
+// MAsquer les barres de scroll thumb
+
+::-webkit-scrollbar {
+    width: 5px;
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 10px;
+}
 
 
 

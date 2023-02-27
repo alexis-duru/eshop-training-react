@@ -1,0 +1,18 @@
+.quantity-control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: fit-content;
+    button {
+        margin: 1rem 0;
+    }
+    .control-left {
+        margin-right: 1rem;
+    }
+    .control-right {
+        margin-left: 1rem;
+    }
+    p {
+      margin: 0 1rem 0 0;
+    }
+}
