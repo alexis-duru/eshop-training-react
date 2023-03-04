@@ -1,7 +1,7 @@
 import React from "react";
 import QuantityControl from "./QuantityControl";
 
-function ShoppingCart({ cart, onRemoveProduct, onUpdateProductQuantity }) {
+function Basket({ cart, onRemoveProduct, onUpdateProductQuantity }) {
   const toggleCart = () => {
     const cartContainer = document.querySelector(".cart-container");
     cartContainer.style.transform = "translateX(0px)";
@@ -13,17 +13,17 @@ function ShoppingCart({ cart, onRemoveProduct, onUpdateProductQuantity }) {
   };
 
   let totalQuantity = 0;
-  for (let item of cart) {
+  cart.map((item) => {
     totalQuantity += item.quantity;
-  }
+  });
 
   let totalPrice = 0;
-  for (let item of cart) {
+  cart.map((item) => {
     const productTotalPrice = item.product.price * item.quantity;
     item.productTotalPrice = Math.round(productTotalPrice * 100) / 100;
     totalPrice += item.productTotalPrice;
     totalPrice = Math.round(totalPrice * 100) / 100;
-  }
+  });
 
   const handleQuantityChange = (index, newQuantity) => {
     onUpdateProductQuantity(index, newQuantity);
@@ -69,6 +69,9 @@ function ShoppingCart({ cart, onRemoveProduct, onUpdateProductQuantity }) {
           />
           <h2>Panier</h2>
           <div className="cart-wrapper">
+            {cart.length === 0 && (
+              <p className="empty-cart">Votre panier est vide</p>
+            )}
             <ul>
               {cart.map((item, index) => (
                 <li className="cart-product" key={index}>
@@ -123,4 +126,4 @@ function ShoppingCart({ cart, onRemoveProduct, onUpdateProductQuantity }) {
   );
 }
 
-export default ShoppingCart;
+export default Basket;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ProductListItem from "./ProductListItem";
-import ShoppingCart from "./ShoppingCart";
+import Basket from "./Basket";
 import products from "../data/eshop.json";
 
 function ProductList() {
@@ -54,7 +54,7 @@ function ProductList() {
           ))}
         </ul>
       </div>
-      <ShoppingCart
+      <Basket
         cart={cart}
         setCart={setCart}
         onRemoveProduct={removeProduct}

@@ -1,6 +1,7 @@
 import React from "react";
 
 function QuantityControl({ quantity, onQuantityChange, showButtons = true }) {
+  
   const handleQuantityChange = (event) => {
     const value = parseInt(event.target.value);
     onQuantityChange(value >= 0 ? value : 0);
@@ -37,7 +38,6 @@ function QuantityControl({ quantity, onQuantityChange, showButtons = true }) {
           </button>
         </>
       )}
-      {!showButtons && <p>Quantity : {quantity}</p>}
     </div>
   );
 }
