@@ -9,10 +9,8 @@ function ProductList() {
   const [cart, setCart] = useState([]);
 
   const addToCart = (product, quantity) => {
-    // Cherche si le produit est déjà dans le panier
     const existingProduct = cart.find((item) => item.product.id === product.id);
     if (existingProduct) {
-      // Si le produit est déjà dans le panier, je met à jour la quantité
       const updatedCart = cart.map((item) => {
         if (item.product.id === product.id) {
           return { product, quantity: item.quantity + quantity };
@@ -22,7 +20,6 @@ function ProductList() {
       });
       setCart(updatedCart);
     } else {
-      // Si le produit n'est pas dans le panier, je l'ajoute
       setCart([...cart, { product, quantity }]);
     }
   };
