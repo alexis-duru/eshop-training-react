@@ -40,7 +40,7 @@ function Basket({ cart, onRemoveProduct, onUpdateProductQuantity }) {
   };
 
   const handleValidateOrder = () => {
-    alert("Votre commande a bien été prise en compte !");
+    alert("Your order has been taken into account !");
     closeCart();
     setTimeout(() => {
       window.location.reload();
@@ -92,15 +92,15 @@ function Basket({ cart, onRemoveProduct, onUpdateProductQuantity }) {
                     max={item.product.stock}
                   />
                   <div className="item-shopping-cart-container">
-                    <p>
-                      Price : <div>{item.product.price} €</div>
-                    </p>
-                    <p>
-                      Quantity : <div> x {item.quantity}</div>
-                    </p>
-                    <p>
-                      Total Price : <div>{item.productTotalPrice} €</div>
-                    </p>
+                    <div>
+                      Price : <p>{item.product.price} €</p>
+                    </div>
+                    <div>
+                      Quantity : <p> x {item.quantity}</p>
+                    </div>
+                    <div>
+                      Total Price : <p>{item.productTotalPrice} €</p>
+                    </div>
                   </div>
                   <button
                     id="button-remove"
@@ -115,14 +115,13 @@ function Basket({ cart, onRemoveProduct, onUpdateProductQuantity }) {
               <span></span>
               <span></span>
               <div className="total-price-container">
+                <p className="total-quantity">
+                  Total quantity : {totalQuantity}
+                </p>
                 <p className="total-price">Total : {totalPrice} €</p>
               </div>
-              {/* Faire une condition et afficher le bouton si la quantité est supérieur a 0 */}
-
               {totalQuantity > 0 && (
-                <button onClick={handleValidateOrder}>
-                  Valider ma commande
-                </button>
+                <button onClick={handleValidateOrder}>Validate my order</button>
               )}
             </div>
           </div>
