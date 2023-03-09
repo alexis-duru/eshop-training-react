@@ -117,7 +117,13 @@ function Basket({ cart, onRemoveProduct, onUpdateProductQuantity }) {
               <div className="total-price-container">
                 <p className="total-price">Total : {totalPrice} €</p>
               </div>
-              <button onClick={handleValidateOrder}>Valider ma commande</button>
+              {/* Faire une condition et afficher le bouton si la quantité est supérieur a 0 */}
+
+              {totalQuantity > 0 && (
+                <button onClick={handleValidateOrder}>
+                  Valider ma commande
+                </button>
+              )}
             </div>
           </div>
         </div>
