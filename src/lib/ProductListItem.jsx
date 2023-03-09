@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import QuantityControl from "./QuantityControl";
 
 function ProductListItem({ product, addToCart }) {
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
 
   const handleQuantityChange = (value) => {
     setQuantity(value);
@@ -10,7 +10,7 @@ function ProductListItem({ product, addToCart }) {
 
   const handleAddToCart = () => {
     addToCart(product, quantity);
-    setQuantity(0);
+    setQuantity(1);
   };
 
   return (
