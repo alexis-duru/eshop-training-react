@@ -133,13 +133,6 @@
 }
 
 .cart-total-container{
-  position: fixed;
-  bottom: 0;
-  width: 80%;
-  background-color: black;
-  margin: auto;
-  font-weight: bold;
-  margin: 2rem 0;
   .total-price {
     font-weight: bold;
     text-transform: uppercase;
@@ -166,11 +159,15 @@
 .item-shopping-cart-container {
   display: flex;
   flex-direction: column;
-  p {
+  justify-content: center;
+  div {
     display: flex;
+    align-items: center;
     margin: 0.5rem 0;
-    div {
+    font-size: 2rem;
+    p {
       margin: 0 1rem;
+      margin-top: 3px;
       font-weight: bold;
     }
   }
