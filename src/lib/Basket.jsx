@@ -67,10 +67,10 @@ function Basket({ cart, onRemoveProduct, onUpdateProductQuantity }) {
             alt="fermer"
             onClick={closeCart}
           />
-          <h2>Panier</h2>
+          <h2>Basket</h2>
           <div className="cart-wrapper">
             {cart.length === 0 && (
-              <p className="empty-cart">Votre panier est vide</p>
+              <p className="empty-cart">Your basket is empty</p>
             )}
             <ul>
               {cart.map((item, index) => (
@@ -106,7 +106,7 @@ function Basket({ cart, onRemoveProduct, onUpdateProductQuantity }) {
                     id="button-remove"
                     onClick={() => handleRemoveProduct(index)}
                   >
-                    Remove
+                    Delete
                   </button>
                 </li>
               ))}
